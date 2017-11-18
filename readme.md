@@ -1,95 +1,95 @@
 ## SG
-SG(SWL_Global)³£ÓÃ½Å±¾¿â¡£¿ÉÒÔÔÚä¯ÀÀÆ÷ºÍnodeÆ½Ì¨ÔËÐÐ¡£
+SG(SWL_Global)å¸¸ç”¨è„šæœ¬åº“ã€‚å¯ä»¥åœ¨æµè§ˆå™¨å’Œnodeå¹³å°è¿è¡Œã€‚
 
-## ÊôÐÔ
+## å±žæ€§
 ### SG.hostEnv	
-·µ»ØÖµ'node'ºÍ'browser'£¬Çø·ÖnodeºÍä¯ÀÀÆ÷Æ½Ì¨¡£
+è¿”å›žå€¼'node'å’Œ'browser'ï¼ŒåŒºåˆ†nodeå’Œæµè§ˆå™¨å¹³å°ã€‚
 
 ### SG.OSVersion
-·µ»Ø²Ù×÷ÏµÍ³µÄÐÅÏ¢
+è¿”å›žæ“ä½œç³»ç»Ÿçš„ä¿¡æ¯
 
 ### SG.browserVersion
-·µ»Øä¯ÀÀÆ÷°æ±¾ÐÅÏ¢
+è¿”å›žæµè§ˆå™¨ç‰ˆæœ¬ä¿¡æ¯
 
-## ·½·¨
+## æ–¹æ³•
 ### SG.isEmail
-ÅÐ¶ÏÊÇ·ñÊÇEmail
+åˆ¤æ–­æ˜¯å¦æ˜¯Email
 ### isIdCard
-ÅÐ¶ÏÊÇ·ñÎªÉí·ÝÖ¤ºÅ
+åˆ¤æ–­æ˜¯å¦ä¸ºèº«ä»½è¯å·
 ### isPhoneNum
-ÅÐ¶ÏÊÇ·ñÎªÊÖ»úºÅ
+åˆ¤æ–­æ˜¯å¦ä¸ºæ‰‹æœºå·
 ### isUrl
-ÅÐ¶ÏÊÇ·ñÎªURLµØÖ·
+åˆ¤æ–­æ˜¯å¦ä¸ºURLåœ°å€
 
-## ×é¼þ
-×é¼þ°üÀ¨object¡¢string¡¢array¡¢time¡¢cookie¡£×é¼þ°üº¬×ÔÉíµÄ·½·¨£¬µ÷ÓÃÊ±Ê¹ÓÃ·½·¨Ãû+²ÎÊý£¨²ÎÊýÎªÊý×é£©¡£
+## ç»„ä»¶
+ç»„ä»¶åŒ…æ‹¬objectã€stringã€arrayã€timeã€randomã€cookieã€‚ç»„ä»¶åŒ…å«è‡ªèº«çš„æ–¹æ³•ï¼Œè°ƒç”¨æ—¶ä½¿ç”¨æ–¹æ³•å+å‚æ•°ï¼ˆå‚æ•°ä¸ºæ•°ç»„ï¼‰ã€‚
 
 ### object
 #### isNull
-ÅÐ¶Ï¶ÔÏóÊÇ·ñ´æÔÚ¡£
+åˆ¤æ–­å¯¹è±¡æ˜¯å¦å­˜åœ¨ã€‚
 > SG.object('isNull',[{name:''}]);
 #### getType
-»ñÈ¡Êý¾ÝÀàÐÍ
+èŽ·å–æ•°æ®ç±»åž‹
 > SG.object('getType',[{name:''}]);
 #### isEmpty
-ÅÐ¶Ï¶ÔÏóÊÇ·ñÎª¿Õ
+åˆ¤æ–­å¯¹è±¡æ˜¯å¦ä¸ºç©º
 > SG.object('isEmpty',[{name:''}]);
 #### deepClone
-Éî¿½±´
+æ·±æ‹·è´
 > let obj = SG.object('deepClone',[{name:''}]);
 
 ### string
 #### trim
-È¥³ý×Ö·û´®ÖÐµÄ¿Õ¸ñ£¬Ä¬ÈÏÌæ»»×Ö·û´®ÖÐµÄËùÓÐ¿Õ¸ñ.
-@param	{String}	str		´ý´¦Àí×Ö·û´®
-@param {String}	type 	l£º×Ö·û´®×ó²à£»r£º×Ö·û´®ÓÒ²à£»lr£º×ó²àºÍÓÒ²à
+åŽ»é™¤å­—ç¬¦ä¸²ä¸­çš„ç©ºæ ¼ï¼Œé»˜è®¤æ›¿æ¢å­—ç¬¦ä¸²ä¸­çš„æ‰€æœ‰ç©ºæ ¼.
+@param	{String}	str		å¾…å¤„ç†å­—ç¬¦ä¸²
+@param {String}	type 	lï¼šå­—ç¬¦ä¸²å·¦ä¾§ï¼›rï¼šå­—ç¬¦ä¸²å³ä¾§ï¼›lrï¼šå·¦ä¾§å’Œå³ä¾§
 > let str = SG.string('trim',[' hh hh h ','lr']);	//hh hh h
 #### isString
-ÅÐ¶ÏÊÇ·ñÊÇ×Ö·û´®
+åˆ¤æ–­æ˜¯å¦æ˜¯å­—ç¬¦ä¸²
 > SG.string('isString',['']);
 #### stringEqual
-×Ö·û´®±È½Ï
+å­—ç¬¦ä¸²æ¯”è¾ƒ
 > SG.string('isString',['abc','bdc']);	//false
 
 ### array
 #### isArray
-ÅÐ¶ÏÊÇ·ñÊÇÊý×é
+åˆ¤æ–­æ˜¯å¦æ˜¯æ•°ç»„
 > SG.array('isArray',[[]])
 #### isEmpty
-ÅÐ¶ÏÊÇ·ñÊÇ¿ÕÊý×é
+åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºæ•°ç»„
 > SG.array('isEmpty',[[]])
 #### arrayEleEqual
-±È½ÏÁ½¸öÊý×éÊÇ·ñÏàµÈ£¬µØÖ·»òÄÚÈÝÏàµÈ£¬¶¼·µ»Øtrue
+æ¯”è¾ƒä¸¤ä¸ªæ•°ç»„æ˜¯å¦ç›¸ç­‰ï¼Œåœ°å€æˆ–å†…å®¹ç›¸ç­‰ï¼Œéƒ½è¿”å›žtrue
 > SG.array('arrayEleEqual',[[],[123]])	//false
 
 ### time
 #### formatDate
-¸ñÊ½»¯Ê±¼ä£¬Êä³öÑùÊ½Îªyy-mm-dd HH:mm:ss¡£ÎÞ²ÎÊýÊ±£¬»ñÈ¡µ±Ç°Ê±¼ä
+æ ¼å¼åŒ–æ—¶é—´ï¼Œè¾“å‡ºæ ·å¼ä¸ºyy-mm-dd HH:mm:ssã€‚æ— å‚æ•°æ—¶ï¼ŒèŽ·å–å½“å‰æ—¶é—´
 > SG.time('formatDate')
 
 ### random
 #### randomColor
-Ëæ»úÉú³ÉÑÕÉ«µÄËæ»úÊý
+éšæœºç”Ÿæˆé¢œè‰²çš„éšæœºæ•°
 > SG.random('randomColor')
 #### randomNum
-È¡Ëæ»úÕýÕûÊý
-@param {Number}	min ×îÐ¡Öµ
-@param {Number}	max ×î´óÖµ
+å–éšæœºæ­£æ•´æ•°
+@param {Number}	min æœ€å°å€¼
+@param {Number}	max æœ€å¤§å€¼
 > SG.random('randomNum',[10,100]);
 
 ### cookie
-ä¯ÀÀÆ÷»·¾³ÏÂÉúÐ§
+æµè§ˆå™¨çŽ¯å¢ƒä¸‹ç”Ÿæ•ˆ
 #### getCookie
-»ñÈ¡cookieÖµ
+èŽ·å–cookieå€¼
 > SG.cookie('getCookie',['name']);
 #### setCookie
-ÉèÖÃÒ»Ìõcookie
-@param {String}	name 	cookieÃû
-@param {String}	value 	cookieÖµ
-@param {Number}	days 	cookieÓÐÐ§Ê±¼ä
+è®¾ç½®ä¸€æ¡cookie
+@param {String}	name 	cookieå
+@param {String}	value 	cookieå€¼
+@param {Number}	days 	cookieæœ‰æ•ˆæ—¶é—´
 > SG.cookie('setCookie',['name','lucy',3]);
 #### removeCookie
-ÒÆ³ýÒ»Ìõcookie
+ç§»é™¤ä¸€æ¡cookie
 > SG.cookie('removeCookie',['name']);
 
 
