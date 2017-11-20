@@ -7,13 +7,16 @@
 	root.SG['hostEnv'] = root.alert ? 'browser' : 'node';
 	root.SG._bind = function(eventName,event){
 		this[eventName] = function(mothed,argArr){
+			if(!mothed){
+				return new Error('The Name Of Event Cannot Be Null');
+			}
 			for(let attr in event){
 				if(event.hasOwnProperty(attr) && attr.indexOf(mothed)>-1){
 					if(!argArr) argArr = [];
 					return event[attr](argArr);
 				}
 			}
-			return new Error('no function');
+			return new Error('No Such Function '+ mothed +' !!');
 		}
 	}
 })();
@@ -70,13 +73,81 @@
 		return !Object.keys(obj).length;
 	}
 	/**
+	*ÃèÊö£ºÅÐ¶Ïstring
+	*@param {Object} obj
+	*@return {Boolean}
+	*/
+	_object.isString = function(argArr){
+		let obj = argArr[0];
+		return typeof obj == 'string' ? true:false;
+	}
+	/**
+	*ÃèÊö£ºÅÐ¶Ïnumber
+	*@param {Object} obj
+	*@return {Boolean}
+	*/
+	_object.isNumber = function(argArr){
+		let obj = argArr[0];
+		return Number.isSafeInteger(obj) ? true:false;
+	}
+	/**
+	*ÃèÊö£ºÅÐ¶ÏNaN
+	*@param {Object} obj
+	*@return {Boolean}
+	*/
+	_object.isNaN = function(argArr){
+		let obj = argArr[0];
+		return Number.isNaN(obj) ? true:false;
+	}
+	/**
+	*ÃèÊö£ºÅÐ¶ÏBoolean
+	*@param {Object} obj
+	*@return {Boolean}
+	*/
+	_object.isBoolean = function(argArr){
+		let obj = argArr[0];
+		return typeof obj == 'boolean' ? true:false;
+	}
+	/**
+	*ÃèÊö£ºÅÐ¶Ïarray
+	*@param {Object} obj
+	*@return {Boolean}
+	*/
+	_object.isArray = function(argArr){
+		let obj = argArr[0];		
+		return Array.isArray(obj) ? true:false;
+	}
+	/**
+	*ÃèÊö£ºÅÐ¶Ïobject
+	*@param {Object} obj
+	*@return {Boolean}
+	*/
+	_object.isObject = function(argArr){
+		let obj = argArr[0];	
+		if(obj){
+			return obj.constructor.name == 'Object' ? true:false;
+		}else{
+			//null,undefined²»ÄÜÊ¹ÓÃconstructor;Îª''·µ»Øfalse
+			return false;
+		}
+	}
+	/**
+	*ÃèÊö£ºÅÐ¶ÏSymbol
+	*@param {Object} obj
+	*@return {Boolean}
+	*/
+	_object.isSymbol = function(argArr){
+		let obj = argArr[0];
+		return typeof obj == 'symbol' ? true:false;
+	}
+	/**
 	*ÃèÊö£ºÉî¿½±´
 	*@param 	{Object}	obj 	´ý¼ì²â¶ÔÏó
 	*@return 	{Object}
 	*/
 	_object.deepClone = function(argArr){
 		let obj = argArr[0],copy;
-		if(this.isNull([obj]) || !Object.is('object',typeof obj))
+		if(this.isNull(argArr) || !Object.is('object',typeof obj))
 			return obj;
 		if(obj instanceof Date){
 			copy = new Date();
@@ -113,12 +184,11 @@
 	*@return ´¦ÀíºóµÄ×Ö·û´®
 	*/
 	_string.trim = function(argArr){
-		let str = argArr[0],type = argArr[1];
-		if(!this.isString(str)){
+		if(!SG.object('isString',argArr)){
 			return new Error('Parameters Must Be String!!');
 		}
+		let str = argArr[0],type = argArr[1];
 		let reg = /[\s]*/g;	//×Ö·û´®ÖÐµÄÈÎÒâ¿Õ¸ñ
-
 		if('l' == type){	//×Ö·û´®×ó²à
 			reg = /^[\s]*/g;
 		}else if('r' == type){	//×Ö·û´®ÓÒ²à
@@ -130,23 +200,14 @@
 	}
 	
 	/**
-	*ÃèÊö£ºÅÐ¶ÏÊÇ·ñÊÇ×Ö·û´®
-	*@param {String}	str	´ýÅÐ¶Ï×Ö·û´®
-	*@return {Boolean}
-	*/
-	_string.isString = function(argArr) {
-		let str = argArr[0];
-		return Object.is('string',typeof str);
-	}
-	/**
 	*ÃèÊö£º×Ö·û´®±È½Ï
 	*@param {String}	str1 	´ý±È½Ï×Ö·û´®
 	*@param {String}	str2 	´ý±È½Ï×Ö·û´®
 	*@return {Boolean}
 	*/
-	_string.stringEqual = function(argArr){
+	_string.equal = function(argArr){
 		let str1 = argArr[0],str2 = argArr[1];
-		if(!this.isString(str1) || !this.isString(str2))
+		if(!SG.object('isString',[str1]) || !SG.object('isString',[str2]))
 			return new Error('Parameters Must Be String!!');
 		return Object.is(str1,str2);
 	}
@@ -159,24 +220,13 @@
 	let _array = {};
 	
 	/**
-	*ÃèÊö£ºÅÐ¶ÏÊÇ·ñÊÇÊý×é
-	*@param	{Array}	arr	´ýÅÐ¶ÏÊý×é
-	*@return {Boolean}
-	*/
-	_array.isArray = function(argArr) {
-		let arr = argArr[0];
-		if(Array.isArray)
-			return Array.isArray(arr);
-		return Object.is('Array',_object.getType([arr]));
-	}
-	/**
 	*ÃèÊö£ºÅÐ¶ÏÊÇ·ñÊÇ¿ÕÊý×é
 	*@param {Array}	arr ´ýÅÐ¶ÏÊý×é
 	*@return {Boolean}
 	*/
 	_array.isEmpty = function(argArr) {
 		let arr = argArr[0];
-		if(!this.isArray(argArr))
+		if(!SG.object('isArray',argArr))
 			return new Error('Parameters Must Be Array!!');
 		return arr.length > 0 ? false : true;
 	}
@@ -186,9 +236,9 @@
 	*@param	{Array}	arr2	´ý±È½ÏÊý×é
 	*@return false/true
 	*/
-	_array.arrayEleEqual = function(argArr){
+	_array.equal = function(argArr){
 		let arr1 = argArr[0],arr2 = argArr[1];
-		if(!this.isArray([arr1]) || !this.isArray([arr2]))
+		if(!SG.object('isArray',[arr1]) || !SG.object('isArray',[arr2]))
 			return new Error('Parameters Must Be Array!!');
 		if(arr1 === arr2) return true;
 		if(arr1.length != arr2.length) return false;
@@ -199,6 +249,27 @@
 		}
 		return true;
 	}
+	
+	/**
+	*ÃèÊö£ºÈ¥³ýÊý×éÖÐÖØ¸´µÄÔªËØ
+	*@param {Array}	arr	´ý´¦ÀíÊý×é
+	*@return {Array}
+	*/
+	_array.unique = function(argArr){
+		if(!SG.object('isArray',argArr))
+			return [];
+		let arr = argArr[0],rs = [];
+		if(Array.from){
+			return Array.from(new Set(arr));
+		}
+		for(let ele of arr){
+			if(rs.indexOf(ele) == -1){
+				rs.push(ele);
+			}
+		}
+		return rs;
+	}
+	
 	/**
 	*ÃèÊö£ºarrayÊÂ¼þ¶¨Òå
 	*/
@@ -349,7 +420,7 @@ SG.debounce = function(){
 //»ñÈ¡ä¯ÀÀÆ÷°æ±¾
 SG.browserVersion = (()=>{
 	if(!Object.is('browser',SG.hostEnv)){
-		return new Error('This Is Not An Expolre');
+		return 'This Is Not An Expolre';
 	}
 	
 	let sys = {},ua = navigator.userAgent.toLowerCase(),s;
@@ -450,3 +521,5 @@ SG.OSVersion = (()=>{
 	*/
 	SG._bind('cookie',_cookie);
 })();
+
+module.exports = SG;

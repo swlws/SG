@@ -34,6 +34,27 @@ SG(SWL_Global)常用脚本库。可以在浏览器和node平台运行。
 #### isEmpty
 判断对象是否为空
 > SG.object('isEmpty',[{name:''}]);
+#### isString
+判断字符串
+> SG.object('isString',['']);
+#### isNumber
+判断数字
+> SG.object('isNumber',[1]);
+#### isNaN
+判断NaN
+> SG.object('isNaN',[NaN]);
+#### isBoolean
+判断布尔变量
+> SG.object('isBoolean',[true]);
+#### isSymbol
+判断Symbol
+> SG.object('isSymbol',[Symbol('')]);
+#### isArray
+判断数组
+> SG.object('isArray',[[]]);
+#### isObject
+判断对象
+> SG.object('isObject',[{}]);
 #### deepClone
 深拷贝
 > let obj = SG.object('deepClone',[{name:''}]);
@@ -44,23 +65,20 @@ SG(SWL_Global)常用脚本库。可以在浏览器和node平台运行。
 @param	{String}	str		待处理字符串
 @param {String}	type 	l：字符串左侧；r：字符串右侧；lr：左侧和右侧
 > let str = SG.string('trim',[' hh hh h ','lr']);	//hh hh h
-#### isString
-判断是否是字符串
-> SG.string('isString',['']);
-#### stringEqual
+#### equal
 字符串比较
-> SG.string('isString',['abc','bdc']);	//false
+> SG.string('equal',['abc','bdc']);	//false
 
 ### array
-#### isArray
-判断是否是数组
-> SG.array('isArray',[[]])
 #### isEmpty
 判断是否是空数组
 > SG.array('isEmpty',[[]])
-#### arrayEleEqual
+#### equal
 比较两个数组是否相等，地址或内容相等，都返回true
-> SG.array('arrayEleEqual',[[],[123]])	//false
+> SG.array('equal',[[],[123]])	//false
+#### unique
+数组去重
+> SG.array('unique',[[11,11,22,22,33,33])
 
 ### time
 #### formatDate
