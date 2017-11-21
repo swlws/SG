@@ -5,11 +5,10 @@
 		this;
 	root.SG = {};
 	root.SG['hostEnv'] = root.alert ? 'browser' : 'node';
+	Object.is('node',SG.hostEnv) ? module.exports = SG : '';
 	root.SG._bind = function(eventName,event){
 		this[eventName] = function(mothed,argArr){
-			if(!mothed){
-				return new Error('The Name Of Event Cannot Be Null');
-			}
+			if(!mothed) return new Error('The Name Of Event Cannot Be Null');
 			for(let attr in event){
 				if(event.hasOwnProperty(attr) && attr.indexOf(mothed)>-1){
 					if(!argArr) argArr = [];
@@ -521,5 +520,3 @@ SG.OSVersion = (()=>{
 	*/
 	SG._bind('cookie',_cookie);
 })();
-
-module.exports = SG;
