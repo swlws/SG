@@ -81,9 +81,12 @@ SG(SWL_Global)常用脚本库。可以在浏览器和node平台运行。
 > SG.array('unique',[[11,11,22,22,33,33])
 
 ### time
-#### formatDate
+#### formatCurrentDate
 格式化时间，输出样式为yy-MM-dd HH:mm:ss。无参数时，获取当前时间
 > SG.time('formatDate')
+#### format
+自定义格式化时间
+> SG.time('format',[new Date(),'yy-MM-dd HH:mm:ss'])
 
 ### random
 #### randomColor
