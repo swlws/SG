@@ -82,7 +82,7 @@ SG(SWL_Global)常用脚本库。可以在浏览器和node平台运行。
 
 ### time
 #### formatDate
-格式化时间，输出样式为yy-mm-dd HH:mm:ss。无参数时，获取当前时间
+格式化时间，输出样式为yy-MM-dd HH:mm:ss。无参数时，获取当前时间
 > SG.time('formatDate')
 
 ### random
