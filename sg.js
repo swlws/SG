@@ -1,5 +1,5 @@
 (()=>{
-	//³õÊ¼»¯
+	//åˆå§‹åŒ–
 	let root = typeof self == 'object' && self.self === self && self ||
 		typeof global == 'object' && global.global === global && global ||
 		this;
@@ -20,14 +20,14 @@
 	}
 })();
 
-/**************************ÊÂ¼ş*****************************/
-//°üÀ¨object¡¢string¡¢array¡¢random
+/**************************äº‹ä»¶*****************************/
+//åŒ…æ‹¬objectã€stringã€arrayã€random
 
 (() => {
 	let _object = {};
 	/**
-	*ÃèÊö£ºÅĞ¶Ï¶ÔÏóÊÇ·ñ´æÔÚ
-	*@param		{Null,Undefined}	obj 	´ı¼ì²â¶ÔÏó
+	*æè¿°ï¼šåˆ¤æ–­å¯¹è±¡æ˜¯å¦å­˜åœ¨
+	*@param		{Null,Undefined}	obj 	å¾…æ£€æµ‹å¯¹è±¡
 	*@return	{Boolean}
 	*/
 	_object.isNull = function(argArr) {
@@ -37,18 +37,18 @@
 		return false;
 	}
 	/**
-	*ÃèÊö£º»ñÈ¡Êı¾İÀàĞÍ
-	*@param 	{}	obj	´ı¼ì²âÊı¾İ
-	*@return 	{Null¡¢Undefined¡¢String¡¢Number¡¢Array¡¢Object}
+	*æè¿°ï¼šè·å–æ•°æ®ç±»å‹
+	*@param 	{}	obj	å¾…æ£€æµ‹æ•°æ®
+	*@return 	{Nullã€Undefinedã€Stringã€Numberã€Arrayã€Object}
 	*/
 	_object.getType = function(argArr) {
 		let obj = argArr[0];
 		return Object.prototype.toString.call(obj).slice(8,-1);
 	}
 	/**
-	*ÃèÊö£º»ñÈ¡Êı¾İÀàĞÍ
-	*@param		{}	obj	´ı¼ì²âÊı¾İ
-	*@return	{Null¡¢Undefined¡¢String¡¢Number¡¢Array¡¢Object}
+	*æè¿°ï¼šè·å–æ•°æ®ç±»å‹
+	*@param		{}	obj	å¾…æ£€æµ‹æ•°æ®
+	*@return	{Nullã€Undefinedã€Stringã€Numberã€Arrayã€Object}
 	*/
 	_object.getType2 = function(argArr){
 		let obj = argArr[0];
@@ -61,8 +61,8 @@
 		}
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶Ï¶ÔÏóÊÇ·ñÎª¿Õ
-	*@param 	{Null,Undefined}	obj 	´ı¼ì²â¶ÔÏó
+	*æè¿°ï¼šåˆ¤æ–­å¯¹è±¡æ˜¯å¦ä¸ºç©º
+	*@param 	{Null,Undefined}	obj 	å¾…æ£€æµ‹å¯¹è±¡
 	*@return 	{Boolean}
 	*/
 	_object.isEmpty = function(argArr){
@@ -72,7 +72,7 @@
 		return !Object.keys(obj).length;
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶Ïstring
+	*æè¿°ï¼šåˆ¤æ–­string
 	*@param {Object} obj
 	*@return {Boolean}
 	*/
@@ -81,7 +81,7 @@
 		return typeof obj == 'string' ? true:false;
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶Ïnumber
+	*æè¿°ï¼šåˆ¤æ–­number
 	*@param {Object} obj
 	*@return {Boolean}
 	*/
@@ -90,7 +90,7 @@
 		return Number.isSafeInteger(obj) ? true:false;
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶ÏNaN
+	*æè¿°ï¼šåˆ¤æ–­NaN
 	*@param {Object} obj
 	*@return {Boolean}
 	*/
@@ -99,7 +99,7 @@
 		return Number.isNaN(obj) ? true:false;
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶ÏBoolean
+	*æè¿°ï¼šåˆ¤æ–­Boolean
 	*@param {Object} obj
 	*@return {Boolean}
 	*/
@@ -108,7 +108,7 @@
 		return typeof obj == 'boolean' ? true:false;
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶Ïarray
+	*æè¿°ï¼šåˆ¤æ–­array
 	*@param {Object} obj
 	*@return {Boolean}
 	*/
@@ -117,7 +117,7 @@
 		return Array.isArray(obj) ? true:false;
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶Ïobject
+	*æè¿°ï¼šåˆ¤æ–­object
 	*@param {Object} obj
 	*@return {Boolean}
 	*/
@@ -126,12 +126,12 @@
 		if(obj){
 			return obj.constructor.name == 'Object' ? true:false;
 		}else{
-			//null,undefined²»ÄÜÊ¹ÓÃconstructor;Îª''·µ»Øfalse
+			//null,undefinedä¸èƒ½ä½¿ç”¨constructor;ä¸º''è¿”å›false
 			return false;
 		}
 	}
 	/**
-	*ÃèÊö£ºÅĞ¶ÏSymbol
+	*æè¿°ï¼šåˆ¤æ–­Symbol
 	*@param {Object} obj
 	*@return {Boolean}
 	*/
@@ -140,8 +140,8 @@
 		return typeof obj == 'symbol' ? true:false;
 	}
 	/**
-	*ÃèÊö£ºÉî¿½±´
-	*@param 	{Object}	obj 	´ı¼ì²â¶ÔÏó
+	*æè¿°ï¼šæ·±æ‹·è´
+	*@param 	{Object}	obj 	å¾…æ£€æµ‹å¯¹è±¡
 	*@return 	{Object}
 	*/
 	_object.deepClone = function(argArr){
@@ -169,7 +169,7 @@
 		return copy;
 	}
 	/**
-	*ÃèÊö£ºobjectÊÂ¼ş¶¨Òå
+	*æè¿°ï¼šobjectäº‹ä»¶å®šä¹‰
 	*/
 	SG._bind('object',_object);
 })();
@@ -177,31 +177,31 @@
 (() => {
 	let _string = {};
 	/**
-	*ÃèÊö£ºÈ¥³ı×Ö·û´®ÖĞµÄ¿Õ¸ñ£¬Ä¬ÈÏÌæ»»×Ö·û´®ÖĞµÄËùÓĞ¿Õ¸ñ
-	*@param	{String}	str		´ı´¦Àí×Ö·û´®
-	*@param {String}	type 	l£º×Ö·û´®×ó²à£»r£º×Ö·û´®ÓÒ²à£»lr£º×ó²àºÍÓÒ²à
-	*@return ´¦ÀíºóµÄ×Ö·û´®
+	*æè¿°ï¼šå»é™¤å­—ç¬¦ä¸²ä¸­çš„ç©ºæ ¼ï¼Œé»˜è®¤æ›¿æ¢å­—ç¬¦ä¸²ä¸­çš„æ‰€æœ‰ç©ºæ ¼
+	*@param	{String}	str		å¾…å¤„ç†å­—ç¬¦ä¸²
+	*@param {String}	type 	lï¼šå­—ç¬¦ä¸²å·¦ä¾§ï¼›rï¼šå­—ç¬¦ä¸²å³ä¾§ï¼›lrï¼šå·¦ä¾§å’Œå³ä¾§
+	*@return å¤„ç†åçš„å­—ç¬¦ä¸²
 	*/
 	_string.trim = function(argArr){
 		if(!SG.object('isString',argArr)){
 			return new Error('Parameters Must Be String!!');
 		}
 		let str = argArr[0],type = argArr[1];
-		let reg = /[\s]*/g;	//×Ö·û´®ÖĞµÄÈÎÒâ¿Õ¸ñ
-		if('l' == type){	//×Ö·û´®×ó²à
+		let reg = /[\s]*/g;	//å­—ç¬¦ä¸²ä¸­çš„ä»»æ„ç©ºæ ¼
+		if('l' == type){	//å­—ç¬¦ä¸²å·¦ä¾§
 			reg = /^[\s]*/g;
-		}else if('r' == type){	//×Ö·û´®ÓÒ²à
+		}else if('r' == type){	//å­—ç¬¦ä¸²å³ä¾§
 			reg = /[\s]*$/g;
-		}else if('lr' == type){	//×ó²àºÍÓÒ²à
+		}else if('lr' == type){	//å·¦ä¾§å’Œå³ä¾§
 			reg = /^[\s]* | [\s]*$/g;
 		}
 		return str.replace(reg,'');
 	}
 	
 	/**
-	*ÃèÊö£º×Ö·û´®±È½Ï
-	*@param {String}	str1 	´ı±È½Ï×Ö·û´®
-	*@param {String}	str2 	´ı±È½Ï×Ö·û´®
+	*æè¿°ï¼šå­—ç¬¦ä¸²æ¯”è¾ƒ
+	*@param {String}	str1 	å¾…æ¯”è¾ƒå­—ç¬¦ä¸²
+	*@param {String}	str2 	å¾…æ¯”è¾ƒå­—ç¬¦ä¸²
 	*@return {Boolean}
 	*/
 	_string.equal = function(argArr){
@@ -211,7 +211,7 @@
 		return Object.is(str1,str2);
 	}
 	/**
-	*ÃèÊö£ºstringÊÂ¼ş¶¨Òå
+	*æè¿°ï¼šstringäº‹ä»¶å®šä¹‰
 	*/
 	SG._bind('string',_string);
 })();
@@ -219,8 +219,8 @@
 	let _array = {};
 	
 	/**
-	*ÃèÊö£ºÅĞ¶ÏÊÇ·ñÊÇ¿ÕÊı×é
-	*@param {Array}	arr ´ıÅĞ¶ÏÊı×é
+	*æè¿°ï¼šåˆ¤æ–­æ˜¯å¦æ˜¯ç©ºæ•°ç»„
+	*@param {Array}	arr å¾…åˆ¤æ–­æ•°ç»„
 	*@return {Boolean}
 	*/
 	_array.isEmpty = function(argArr) {
@@ -230,9 +230,9 @@
 		return arr.length > 0 ? false : true;
 	}
 	/**
-	*ÃèÊö£º±È½ÏÁ½¸öÊı×éÊÇ·ñÏàµÈ£¬µØÖ·»òÄÚÈİÏàµÈ£¬¶¼·µ»Øtrue
-	*@param	{Array}	arr1	´ı±È½ÏÊı×é
-	*@param	{Array}	arr2	´ı±È½ÏÊı×é
+	*æè¿°ï¼šæ¯”è¾ƒä¸¤ä¸ªæ•°ç»„æ˜¯å¦ç›¸ç­‰ï¼Œåœ°å€æˆ–å†…å®¹ç›¸ç­‰ï¼Œéƒ½è¿”å›true
+	*@param	{Array}	arr1	å¾…æ¯”è¾ƒæ•°ç»„
+	*@param	{Array}	arr2	å¾…æ¯”è¾ƒæ•°ç»„
 	*@return false/true
 	*/
 	_array.equal = function(argArr){
@@ -250,8 +250,8 @@
 	}
 	
 	/**
-	*ÃèÊö£ºÈ¥³ıÊı×éÖĞÖØ¸´µÄÔªËØ
-	*@param {Array}	arr	´ı´¦ÀíÊı×é
+	*æè¿°ï¼šå»é™¤æ•°ç»„ä¸­é‡å¤çš„å…ƒç´ 
+	*@param {Array}	arr	å¾…å¤„ç†æ•°ç»„
 	*@return {Array}
 	*/
 	_array.unique = function(argArr){
@@ -270,7 +270,7 @@
 	}
 	
 	/**
-	*ÃèÊö£ºarrayÊÂ¼ş¶¨Òå
+	*æè¿°ï¼šarrayäº‹ä»¶å®šä¹‰
 	*/
 	SG._bind('array',_array);
 })();
@@ -278,9 +278,9 @@
 (()=>{
 	let _time = {};
 	/**
-	*ÃèÊö£º¸ñÊ½»¯Ê±¼ä
+	*æè¿°ï¼šæ ¼å¼åŒ–æ—¶é—´
 	*/
-	_time.formatDate = function(argArr){
+	_time.formatCurrentDate = function(argArr){
 		let time = argArr[0],date = new Date();
 		if(time){
 			date = new Date(time);
@@ -293,9 +293,47 @@
 			second = date.getSeconds();
 		return year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second;
 	}
+	/**
+	*æè¿°ï¼šæ ¼å¼åŒ–æ—¶é—´
+	*@param	time	{Date/String}
+	*@param	fmt		{String}	yyyyå¹´MMæœˆddæ—¥ hh:mm:ss.S	yyyy-MM-dd hh:mm:ss	yy-MM-dd hh:mm:ss	yy-M-d hh:mm:ss
+	*@param	fmt		{String}	æ ¼å¼åŒ–åçš„æ—¶é—´
+	*/
+	_time.format = function(argArr){
+		let time = new Date(argArr[0]) , fmt = argArr[1];
+		if(time == 'Invalid Date'){
+			return 'Invalid Date';
+		}
+		var o = {
+			"y+": time.getFullYear(),
+			"M+": time.getMonth() + 1,                 //æœˆä»½
+			"d+": time.getDate(),                    //æ—¥
+			"h+": time.getHours(),                   //å°æ—¶
+			"m+": time.getMinutes(),                 //åˆ†
+			"s+": time.getSeconds(),                 //ç§’
+			"q+": Math.floor((time.getMonth() + 3) / 3), //å­£åº¦
+			"S+": time.getMilliseconds()             //æ¯«ç§’
+		};
+		for (var k in o) {
+			if (new RegExp("(" + k + ")").test(fmt)){
+				if(k == "y+"){
+					fmt = fmt.replace(RegExp.$1, ("" + o[k]).substr(4 - RegExp.$1.length));
+				}
+				else if(k=="S+"){
+					var lens = RegExp.$1.length;
+					lens = lens==1?3:lens;
+					fmt = fmt.replace(RegExp.$1, ("00" + o[k]).substr(("" + o[k]).length - 1,lens));
+				}
+				else{
+					fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+				}
+			}
+		}
+		return fmt;
+	}
 	// _time.getTime = funct
 	/**
-	*ÃèÊö£ºtimeÊÂ¼ş¶¨Òå
+	*æè¿°ï¼štimeäº‹ä»¶å®šä¹‰
 	*/
 	SG._bind('time',_time);
 })();
@@ -303,16 +341,16 @@
 (()=>{	
 	let _random={} ;
 	/**
-	*ÃèÊö£ºËæ»úÉú³ÉÑÕÉ«µÄËæ»úÊı
+	*æè¿°ï¼šéšæœºç”Ÿæˆé¢œè‰²çš„éšæœºæ•°
 	*@return {String}	'#aabb12'
 	*/
 	_random.randomColor = function(){
 		return '#'+ ('00000'+ (Math.random() * 0x1000000<< 0).toString(16)).slice(-6);
 	}
 	/**
-	*ÃèÊö£ºÈ¡Ëæ»úÕıÕûÊı
-	*@param {Number}	min ×îĞ¡Öµ
-	*@param {Number}	max ×î´óÖµ
+	*æè¿°ï¼šå–éšæœºæ­£æ•´æ•°
+	*@param {Number}	min æœ€å°å€¼
+	*@param {Number}	max æœ€å¤§å€¼
 	*@reutnr {Number}
 	*/
 	_random.randomNum = function(argArr){
@@ -329,17 +367,17 @@
 		}
 	}
 	/**
-	*ÃèÊö£ºrandomÊÂ¼ş¶¨Òå
+	*æè¿°ï¼šrandomäº‹ä»¶å®šä¹‰
 	*/
 	SG._bind('random',_random);
 })();
 
-/**************************·½·¨*****************************/
-//°üÀ¨isEmail¡¢isIdCard¡¢isPhoneNum¡¢isUrl
+/**************************æ–¹æ³•*****************************/
+//åŒ…æ‹¬isEmailã€isIdCardã€isPhoneNumã€isUrl
 
 /**
- * ÃèÊö£ºÅĞ¶ÏÊÇ·ñÊÇEmail
- * @param {String}	str ´ı²âEmail
+ * æè¿°ï¼šåˆ¤æ–­æ˜¯å¦æ˜¯Email
+ * @param {String}	str å¾…æµ‹Email
  * @return {Boolean}
  */
 SG.isEmail = function(str){
@@ -348,7 +386,7 @@ SG.isEmail = function(str){
 
 /**
  * 
- * ÃèÊö£ºÅĞ¶ÏÊÇ·ñÎªÉí·İÖ¤ºÅ
+ * æè¿°ï¼šåˆ¤æ–­æ˜¯å¦ä¸ºèº«ä»½è¯å·
  * @param  {String|Number} str 
  * @return {Boolean}
  */
@@ -358,7 +396,7 @@ SG.isIdCard = function(str){
 
 /**
  * 
- * ÃèÊö£ºÅĞ¶ÏÊÇ·ñÎªÊÖ»úºÅ
+ * æè¿°ï¼šåˆ¤æ–­æ˜¯å¦ä¸ºæ‰‹æœºå·
  * @param  {String|Number} str 
  * @return {Boolean} 
  */
@@ -368,7 +406,7 @@ SG.isPhoneNum = function(str){
 
 /**
  * 
- * ÃèÊö£ºÅĞ¶ÏÊÇ·ñÎªURLµØÖ·
+ * æè¿°ï¼šåˆ¤æ–­æ˜¯å¦ä¸ºURLåœ°å€
  * @param  {String} str 
  * @return {Boolean}
  */
@@ -377,38 +415,38 @@ SG.isUrl = function(str){
 }
 
 /**
-* ÃèÊö£ºº¯Êı½ÚÁ÷
-* ÊÊÓÃÓÚÏŞÖÆ`resize`ºÍ`scroll`µÈº¯ÊıµÄµ÷ÓÃÆµÂÊ
+* æè¿°ï¼šå‡½æ•°èŠ‚æµ
+* é€‚ç”¨äºé™åˆ¶`resize`å’Œ`scroll`ç­‰å‡½æ•°çš„è°ƒç”¨é¢‘ç‡
 *
-* @param  {Number}    delay          0 »òÕß¸ü´óµÄºÁÃëÊı¡£ ¶ÔÓÚÊÂ¼ş»Øµ÷£¬´óÔ¼100»ò250ºÁÃë£¨»ò¸ü¸ß£©µÄÑÓ³ÙÊÇ×îÓĞÓÃµÄ¡£
-* @param  {Boolean}   noTrailing     ¿ÉÑ¡£¬Ä¬ÈÏÎªfalse¡£
-*                                    Èç¹ûnoTrailingÎªtrue£¬µ±½ÚÁ÷º¯Êı±»µ÷ÓÃ£¬Ã¿¹ı`delay`ºÁÃë`callback`Ò²½«Ö´ĞĞÒ»´Î¡£
-*                                    Èç¹ûnoTrailingÎªfalse»òÕßÎ´´«Èë£¬`callback`½«ÔÚ×îºóÒ»´Îµ÷ÓÃ½ÚÁ÷º¯ÊıºóÔÙÖ´ĞĞÒ»´Î.
-*                                    £¨ÑÓ³Ù`delay`ºÁÃëÖ®ºó£¬½ÚÁ÷º¯ÊıÃ»ÓĞ±»µ÷ÓÃ,ÄÚ²¿¼ÆÊıÆ÷»á¸´Î»£©
-* @param  {Function}  callback       ÑÓ³ÙºÁÃëºóÖ´ĞĞµÄº¯Êı¡£`this`ÉÏÏÂÎÄºÍËùÓĞ²ÎÊı¶¼ÊÇ°´Ô­Ñù´«µİµÄ£¬
-*                                    Ö´ĞĞÈ¥½ÚÁ÷¹¦ÄÜÊ±£¬µ÷ÓÃ`callback`¡£
-* @param  {Boolean}   debounceMode   Èç¹û`debounceMode`Îªtrue£¬`clear`ÔÚ`delay`msºóÖ´ĞĞ¡£
-*                                    Èç¹ûdebounceModeÊÇfalse£¬`callback`ÔÚ`delay` msÖ®ºóÖ´ĞĞ¡£
+* @param  {Number}    delay          0 æˆ–è€…æ›´å¤§çš„æ¯«ç§’æ•°ã€‚ å¯¹äºäº‹ä»¶å›è°ƒï¼Œå¤§çº¦100æˆ–250æ¯«ç§’ï¼ˆæˆ–æ›´é«˜ï¼‰çš„å»¶è¿Ÿæ˜¯æœ€æœ‰ç”¨çš„ã€‚
+* @param  {Boolean}   noTrailing     å¯é€‰ï¼Œé»˜è®¤ä¸ºfalseã€‚
+*                                    å¦‚æœnoTrailingä¸ºtrueï¼Œå½“èŠ‚æµå‡½æ•°è¢«è°ƒç”¨ï¼Œæ¯è¿‡`delay`æ¯«ç§’`callback`ä¹Ÿå°†æ‰§è¡Œä¸€æ¬¡ã€‚
+*                                    å¦‚æœnoTrailingä¸ºfalseæˆ–è€…æœªä¼ å…¥ï¼Œ`callback`å°†åœ¨æœ€åä¸€æ¬¡è°ƒç”¨èŠ‚æµå‡½æ•°åå†æ‰§è¡Œä¸€æ¬¡.
+*                                    ï¼ˆå»¶è¿Ÿ`delay`æ¯«ç§’ä¹‹åï¼ŒèŠ‚æµå‡½æ•°æ²¡æœ‰è¢«è°ƒç”¨,å†…éƒ¨è®¡æ•°å™¨ä¼šå¤ä½ï¼‰
+* @param  {Function}  callback       å»¶è¿Ÿæ¯«ç§’åæ‰§è¡Œçš„å‡½æ•°ã€‚`this`ä¸Šä¸‹æ–‡å’Œæ‰€æœ‰å‚æ•°éƒ½æ˜¯æŒ‰åŸæ ·ä¼ é€’çš„ï¼Œ
+*                                    æ‰§è¡Œå»èŠ‚æµåŠŸèƒ½æ—¶ï¼Œè°ƒç”¨`callback`ã€‚
+* @param  {Boolean}   debounceMode   å¦‚æœ`debounceMode`ä¸ºtrueï¼Œ`clear`åœ¨`delay`msåæ‰§è¡Œã€‚
+*                                    å¦‚æœdebounceModeæ˜¯falseï¼Œ`callback`åœ¨`delay` msä¹‹åæ‰§è¡Œã€‚
 *
-* @return {Function}  ĞÂµÄ½ÚÁ÷º¯Êı
+* @return {Function}  æ–°çš„èŠ‚æµå‡½æ•°
 */
 SG.throttle = function(delay, noTrailing, callback, debounceMode){
 	
 }
 
 /**
-*ÃèÊö£ºº¯Êı·À¶¶
-* Óëthrottle²»Í¬µÄÊÇ£¬debounce±£Ö¤Ò»¸öº¯ÊıÔÚ¶àÉÙºÁÃëÄÚ²»ÔÙ±»´¥·¢£¬Ö»»áÖ´ĞĞÒ»´Î£¬
-* ÒªÃ´ÔÚµÚÒ»´Îµ÷ÓÃreturnµÄ·À¶¶º¯ÊıÊ±Ö´ĞĞ£¬ÒªÃ´ÔÚÑÓ³ÙÖ¸¶¨ºÁÃëºóµ÷ÓÃ¡£
-* @example ÊÊÓÃ³¡¾°£ºÈçÔÚÏß±à¼­µÄ×Ô¶¯´æ´¢·À¶¶¡£
-* @param  {Number}   delay         0»òÕß¸ü´óµÄºÁÃëÊı¡£ ¶ÔÓÚÊÂ¼ş»Øµ÷£¬´óÔ¼100»ò250ºÁÃë£¨»ò¸ü¸ß£©µÄÑÓ³ÙÊÇ×îÓĞÓÃµÄ¡£
-* @param  {Boolean}  atBegin       ¿ÉÑ¡£¬Ä¬ÈÏÎªfalse¡£
-*                                  Èç¹û`atBegin`Îªfalse»òÎ´´«Èë£¬»Øµ÷º¯ÊıÔòÔÚµÚÒ»´Îµ÷ÓÃreturnµÄ·À¶¶º¯ÊıºóÑÓ³ÙÖ¸¶¨ºÁÃëµ÷ÓÃ¡£
-								   Èç¹û`atBegin`Îªtrue£¬»Øµ÷º¯ÊıÔòÔÚµÚÒ»´Îµ÷ÓÃreturnµÄ·À¶¶º¯ÊıÊ±Ö±½ÓÖ´ĞĞ
-* @param  {Function} callback      ÑÓ³ÙºÁÃëºóÖ´ĞĞµÄº¯Êı¡£`this`ÉÏÏÂÎÄºÍËùÓĞ²ÎÊı¶¼ÊÇ°´Ô­Ñù´«µİµÄ£¬
-*                                  Ö´ĞĞÈ¥¶¶¶¯¹¦ÄÜÊ±£¬£¬µ÷ÓÃ`callback`¡£
+*æè¿°ï¼šå‡½æ•°é˜²æŠ–
+* ä¸throttleä¸åŒçš„æ˜¯ï¼Œdebounceä¿è¯ä¸€ä¸ªå‡½æ•°åœ¨å¤šå°‘æ¯«ç§’å†…ä¸å†è¢«è§¦å‘ï¼Œåªä¼šæ‰§è¡Œä¸€æ¬¡ï¼Œ
+* è¦ä¹ˆåœ¨ç¬¬ä¸€æ¬¡è°ƒç”¨returnçš„é˜²æŠ–å‡½æ•°æ—¶æ‰§è¡Œï¼Œè¦ä¹ˆåœ¨å»¶è¿ŸæŒ‡å®šæ¯«ç§’åè°ƒç”¨ã€‚
+* @example é€‚ç”¨åœºæ™¯ï¼šå¦‚åœ¨çº¿ç¼–è¾‘çš„è‡ªåŠ¨å­˜å‚¨é˜²æŠ–ã€‚
+* @param  {Number}   delay         0æˆ–è€…æ›´å¤§çš„æ¯«ç§’æ•°ã€‚ å¯¹äºäº‹ä»¶å›è°ƒï¼Œå¤§çº¦100æˆ–250æ¯«ç§’ï¼ˆæˆ–æ›´é«˜ï¼‰çš„å»¶è¿Ÿæ˜¯æœ€æœ‰ç”¨çš„ã€‚
+* @param  {Boolean}  atBegin       å¯é€‰ï¼Œé»˜è®¤ä¸ºfalseã€‚
+*                                  å¦‚æœ`atBegin`ä¸ºfalseæˆ–æœªä¼ å…¥ï¼Œå›è°ƒå‡½æ•°åˆ™åœ¨ç¬¬ä¸€æ¬¡è°ƒç”¨returnçš„é˜²æŠ–å‡½æ•°åå»¶è¿ŸæŒ‡å®šæ¯«ç§’è°ƒç”¨ã€‚
+								   å¦‚æœ`atBegin`ä¸ºtrueï¼Œå›è°ƒå‡½æ•°åˆ™åœ¨ç¬¬ä¸€æ¬¡è°ƒç”¨returnçš„é˜²æŠ–å‡½æ•°æ—¶ç›´æ¥æ‰§è¡Œ
+* @param  {Function} callback      å»¶è¿Ÿæ¯«ç§’åæ‰§è¡Œçš„å‡½æ•°ã€‚`this`ä¸Šä¸‹æ–‡å’Œæ‰€æœ‰å‚æ•°éƒ½æ˜¯æŒ‰åŸæ ·ä¼ é€’çš„ï¼Œ
+*                                  æ‰§è¡Œå»æŠ–åŠ¨åŠŸèƒ½æ—¶ï¼Œï¼Œè°ƒç”¨`callback`ã€‚
 *
-* @return {Function} ĞÂµÄ·À¶¶º¯Êı¡£
+* @return {Function} æ–°çš„é˜²æŠ–å‡½æ•°ã€‚
 */
 SG.debounce = function(){
 	
@@ -416,7 +454,7 @@ SG.debounce = function(){
 
 /****************************browser operation********************************/
 
-//»ñÈ¡ä¯ÀÀÆ÷°æ±¾
+//è·å–æµè§ˆå™¨ç‰ˆæœ¬
 SG.browserVersion = (()=>{
 	if(!Object.is('browser',SG.hostEnv)){
 		return 'This Is Not An Expolre';
@@ -437,12 +475,12 @@ SG.browserVersion = (()=>{
 	if(sys.chrome) return('Chrome: '+ sys.chrome);
 	if(sys.opera) return('Opera: '+ sys.opera);
 	if(sys.safari) return('Safari: '+ sys.safari);
-	//IE10µÄÅĞ¶Ï
+	//IE10çš„åˆ¤æ–­
 	if (!!window.ActiveXObject || "ActiveXObject" in window) return ('IE: 10');
 	return 'Unkonwn';
 })();
 
-//²Ù×÷ÏµÍ³°æ±¾ĞÅÏ¢
+//æ“ä½œç³»ç»Ÿç‰ˆæœ¬ä¿¡æ¯
 SG.OSVersion = (()=>{
 	if(Object.is('node',SG.hostEnv)){
 		return process.platform + ' '+ process.arch;
@@ -471,7 +509,7 @@ SG.OSVersion = (()=>{
     return "other";
 })();
 /**
-*cookie²Ù×÷
+*cookieæ“ä½œ
 */
 (()=>{
 	if(!Object.is('browser',SG.hostEnv))
@@ -479,9 +517,9 @@ SG.OSVersion = (()=>{
 	
 	let _cookie = {};
 	/**
-	*ÃèÊö£º»ñÈ¡cookieÖµ
-	*@param {String}	name 	±äÁ¿Ãû
-	*@return {String}	cookieÖµ
+	*æè¿°ï¼šè·å–cookieå€¼
+	*@param {String}	name 	å˜é‡å
+	*@return {String}	cookieå€¼
 	*/
 	_cookie.getCookie = function(argArr){
 		let name = argArr[0];
@@ -495,10 +533,10 @@ SG.OSVersion = (()=>{
 		return '';
 	}
 	/**
-	*ÃèÊö£ºÉèÖÃÒ»Ìõcookie
-	*@param {String}	name 	cookieÃû
-	*@param {String}	value 	cookieÖµ
-	*@param {Number}	days 	cookieÓĞĞ§Ê±¼ä
+	*æè¿°ï¼šè®¾ç½®ä¸€æ¡cookie
+	*@param {String}	name 	cookieå
+	*@param {String}	value 	cookieå€¼
+	*@param {Number}	days 	cookieæœ‰æ•ˆæ—¶é—´
 	*/
 	_cookie.setCookie = function(argArr) {
 		let name = argArr[0],value = argArr[1],days = argArr[2];
@@ -507,16 +545,16 @@ SG.OSVersion = (()=>{
 		document.cookie = name + '=' + value + ';expires=' + date;
 	}
 	/**
-	*ÃèÊö£ºÒÆ³ıÒ»Ìõcookie
-	*@param {String}	name 	cookieÃû
+	*æè¿°ï¼šç§»é™¤ä¸€æ¡cookie
+	*@param {String}	name 	cookieå
 	*/
 	_cookie.removeCookie = function(argArr){
-		//ÉèÖÃÒÑ¹ıÆÚ£¬ÏµÍ³»áÁ¢¿ÌÉ¾³ıcookie
+		//è®¾ç½®å·²è¿‡æœŸï¼Œç³»ç»Ÿä¼šç«‹åˆ»åˆ é™¤cookie
 		let name = argArr[0];
 		setCookie(name,'1',-1);
 	}
 	/**
-	*ÃèÊö£ºcookieÊÂ¼ş¶¨Òå
+	*æè¿°ï¼šcookieäº‹ä»¶å®šä¹‰
 	*/
 	SG._bind('cookie',_cookie);
 })();
