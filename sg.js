@@ -558,3 +558,31 @@ SG.OSVersion = (()=>{
 	*/
 	SG._bind('cookie',_cookie);
 })();
+
+(function(){
+	let _url = {};
+	/**
+	* 描述：获取参数对象
+	*/
+	_url.getURLParams=function(argArr){
+		var url = argArr[0] , obj = {};
+		var reg = /([\w]+)=([\w]+)/g;
+		var res = url.match(reg);
+		url.replace(reg,function(a,b,c){
+			obj[b] = c;
+		})
+		return obj;
+	}
+	
+	/**
+	* 描述：获取参数的值
+	*/
+	_url.getParamValue=function(argArr){
+		var url = argArr[0] , id = argArr[1];
+		var reg = new RegExp(id + '=([\\w]+)');
+		var res = url.match(reg);
+		if(res) return res[1];
+		return null;
+	}
+	SG._bind('url',_url);
+})();
